@@ -1,4 +1,4 @@
-export { OpenSkyApi } from './OpenSkyApi'
+export { OpenSkyClient } from './OpenSkyClient'
 
 export type { StateVector } from './interfaces/StateVector'
 

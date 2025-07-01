@@ -1,12 +1,12 @@
 import 'dotenv/config'
-import { OpenSkyApi } from 'opensky'
+import { OpenSkyClient } from 'opensky'
 ;(async () => {
-  const opensky = new OpenSkyApi({
+  const opensky = new OpenSkyClient({
     clientId: process.env.OPENSKY_CLIENT_ID!,
     clientSecret: process.env.OPENSKY_CLIENT_SECRET!,
   })
 
-  // get states with bounding box covering Switzerland:
+  // Get states with bounding box covering Switzerland
   const states = await opensky.getStates({
     boundingBox: {
       latitudeMin: 45.8389,
@@ -16,9 +16,9 @@ import { OpenSkyApi } from 'opensky'
     },
   })
 
-  // print states of the aircrafts
+  // Print all state vectors (aircraft positions)
   console.log(states)
 
-  // print the remaining credits
+  // Print the remaining credits
   console.log(opensky.getRemainingCredits())
 })()

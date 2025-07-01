@@ -2,7 +2,7 @@ import { formatStateVector } from './utils/formatState'
 import { checkLatitude, checkLongitude } from './utils/check'
 import { StateVector } from './interfaces/StateVector'
 
-export class OpenSkyApi {
+export class OpenSkyClient {
   private clientId: string | null
   private clientSecret: string | null
 
