@@ -52,14 +52,18 @@ export class OpenSkyClient {
 
       // validate response
       if (res.status !== 200) {
-        throw Error('Invalid Status')
+        throw Error(
+          `Invalid Auth Status: ${res.status} ${
+            res.statusText
+          } ${await res.text()}`,
+        )
       }
 
       const json = await res.json()
 
       // throw error if access_token is missing in response
       if (!json.access_token || !json.expires_in) {
-        throw Error('access_token or expires_in missing')
+        throw Error('Invalid Auth Status: access_token or expires_in missing')
       }
 
       // save access_token if existant
