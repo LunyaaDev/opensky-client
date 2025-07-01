@@ -15,7 +15,9 @@
   },
   "keywords": [
     "opensky",
-    "opensky network"
+    "opensky-network",
+    "opensky-api",
+    "openskynetwork"
   ],
   "author": "LunyaaDev",
   "license": "MIT",
