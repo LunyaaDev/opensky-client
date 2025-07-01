@@ -1,5 +1,5 @@
 {
-  "name": "opensky",
+  "name": "opensky-client",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -17,14 +17,15 @@
     "opensky",
     "opensky-network",
     "opensky-api",
-    "openskynetwork"
+    "openskynetwork",
+    "opensky-client"
   ],
   "author": "LunyaaDev",
   "license": "MIT",
   "packageManager": "pnpm@10.8.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lunyaadev/opensky.git"
+    "url": "https://github.com/lunyaadev/opensky-client.git"
   },
   "devDependencies": {
     "@types/node": "^24.0.8",

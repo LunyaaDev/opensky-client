@@ -1,4 +1,4 @@
-# 🛫 Opensky
+# 🛫 Opensky Client
 
 A lightweight and easy-to-use library to interact with the [OpenSky Network API](https://www.opensky-network.org).
 
