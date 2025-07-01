@@ -39,7 +39,7 @@ export class OpenSkyClient {
       const params = new URLSearchParams()
       params.append('grant_type', 'client_credentials')
       params.append('client_id', this.clientId)
-      params.append('client_secret', this.clientId)
+      params.append('client_secret', this.clientSecret)
 
       // send request to auth server
       const res = await fetch(url, {
