@@ -1,0 +1,32 @@
+{
+  "name": "opensky",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "pnpm exec tsup src/index.ts --dts"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "opensky",
+    "opensky network"
+  ],
+  "author": "LunyaaDev",
+  "license": "MIT",
+  "packageManager": "pnpm@10.8.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunyaadev/opensky.git"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.8",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
