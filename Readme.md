@@ -10,6 +10,24 @@ A lightweight and easy-to-use library to interact with the [OpenSky Network API]
   - [State Vectors](https://openskynetwork.github.io/opensky-api/rest.html#all-state-vectors)
   - _(More endpoints coming soon!)_
 
+## 🚀 Example usage
+
+Unauthenticated call to the API to get all states
+
+```ts
+import { OpenSkyClient } from 'opensky-client'
+
+const opensky = new OpenSkyClient()
+
+// Get all states
+const states = await opensky.getStates()
+
+// Print all state vectors (aircraft infos)
+console.log(states)
+```
+
+📂 [Authenticated Example](./example/src/index.ts)
+
 ## 📊 OpenSky API Rate Limits
 
 | **User Type** | **API Credits** | **Requirement** |
