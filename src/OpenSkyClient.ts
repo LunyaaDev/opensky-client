@@ -13,6 +13,13 @@ export class OpenSkyClient {
 
   private baseUrl = 'https://opensky-network.org/api'
 
+  /**
+   * OpenSky Client
+   *
+   * To get the clientId and clientSecret, go to the [opensky account page](https://opensky-network.org/my-opensky/account) and generate a new API Client key
+   *
+   * @param opts
+   */
   constructor(opts?: { clientId: string; clientSecret: string }) {
     this.clientId = opts?.clientId || null
     this.clientSecret = opts?.clientSecret || null
@@ -127,22 +134,10 @@ export class OpenSkyClient {
    * bounding box defined by latitude and longitude coordinates, or including aircraft category.
    *
    * @param {Object} opts - The options for the request.
-   * @param {Date} [opts.time] - The Date and time to retrieve state vectors for. If omitted, the current time will be used.
-   * @param {string[]} [opts.icao24] - An array of one or more ICAO24 transponder addresses (hex strings).
-   *                                  If provided, only the state vectors for the specified ICAO24 addresses will be returned.
-   *                                  If omitted, the state vectors for all aircraft are returned.
-   * @param {Object} [opts.boundingBox] - An object specifying the bounding box with WGS84 coordinates.
-   *                                       If provided, the state vectors of aircraft within this area will be returned.
-   * @param {number} opts.boundingBox.latitudeMin - The lower bound for latitude in decimal degrees.
-   * @param {number} opts.boundingBox.latitudeMax - The upper bound for latitude in decimal degrees.
-   * @param {number} opts.boundingBox.longitudeMin - The lower bound for longitude in decimal degrees.
-   * @param {number} opts.boundingBox.longitudeMax - The upper bound for longitude in decimal degrees.
-   * @param {boolean} [opts.includeAircraftCategory=false] - Whether to include the category of aircraft in the response.
-   *                                                          Set to `true` if aircraft category is required (default is `false`).
    *
    * @returns {Promise<StateVector[]>} A Promise that resolves with the API response containing the state vectors of aircraft.
    *
-   * @see https://openskynetwork.github.io/opensky-api/rest.html#own-state-vectors
+   * @see https://openskynetwork.github.io/opensky-api/rest.html#all-state-vectors
    *
    * @example
    * // Example query with time and aircraft ICAO24:
@@ -176,14 +171,21 @@ export class OpenSkyClient {
    */
   async getStates(
     opts: {
+      /** The time in seconds since epoch (Unix time stamp to retrieve states for. Current time will be used if omitted. */
       time?: Date
+      /** One or more ICAO24 transponder addresses represented by a hex string (e.g. abc9f3). To filter multiple ICAO24 append the property once for each address. If omitted, the state vectors of all aircraft are returned. */
       icao24?: string[]
       boundingBox?: {
+        /** lower bound for the latitude in decimal degrees */
         latitudeMin: number
+        /** upper bound for the latitude in decimal degrees */
         latitudeMax: number
+        /** lower bound for the longitude in decimal degrees */
         longitudeMin: number
+        /** upper bound for the longitude in decimal degre */
         longitudeMax: number
       }
+      /** Whether to include the category of aircraft in the response. */
       includeAircraftCategory?: boolean
     } = {},
   ) {

@@ -1,7 +1,7 @@
 {
   "name": "opensky-client",
   "version": "0.0.4",
-  "description": "",
+  "description": "A lightweight and easy-to-use library to interact with the OpenSky Network API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
